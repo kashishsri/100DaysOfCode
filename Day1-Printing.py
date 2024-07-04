@@ -1,2 +1,1 @@
-print("Hello All !!")
-print("Kashish" + " " + "Srivastava")
+print("Hello " + input("What is your name? : "))
