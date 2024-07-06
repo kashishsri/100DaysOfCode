@@ -59,10 +59,5 @@ else:
     elif computer_choice == user_choice:
         print("It's a draw!")
 
-# if computer_choice == 0:
-#     print(rock)2
-# elif computer_choice == 1:
-#     print(paper)
-# elif computer_choice == 2:
-#     print(scissors)
+
 
