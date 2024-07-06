@@ -8,17 +8,25 @@ letter_count = int(input("How many letters would you like in your password?\n"))
 symbol_count = int(input("How many symbols would you like?\n"))
 number_count = int(input("How many numbers would you like?\n"))
 
-# Easy way : Order not random
+# Hard way : Randomized Order
+password_list = []
 password = ""
 for char in range(1, letter_count + 1):
-    # random_char = random.choice(letters)
-    # password += random_char
-    password += random.choice(letters)
+    password_list.append(random.choice(letters)) 
 
 for number in range(1, number_count + 1):
-    password += random.choice(numbers)
+    password_list.append(random.choice(numbers))
 
 for symbol in range(1, symbol_count + 1):
-    password += random.choice(symbols)
+    password_list.append(random.choice(symbols))
+
+# To test shuffle
+# print(password_list)
+# random.shuffle(password_list)
+# print(password_list)
+
+random.shuffle(password_list)
+for char in password_list:
+    password += char
 
 print(f"Here is your password: {password}")
