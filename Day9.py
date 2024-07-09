@@ -1,45 +1,36 @@
-# Dictionary in Python
-programming_dictionary = {
-    "Bug": "An error in a program that prevents the program from running as expected.", 
-    "Function": "A piece of code that you can easily call over and over again.", 
-    "Loop" : "The action of doing something repeatedly.", 
-}
+# User Defined Function to clear console output
+import os
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-# Nesting in Dictionaries
-capitals = {
-    "Uttar Pradesh" : "Lucknow",
-    "Madhya Pradesh" : "Bhopal",
-    "Goa" : "Panaji"
-}
-# Nesting a list in dict
+from Day9_art import logo
+print(logo)
 
-travel_log = {
-    "Uttar Pradesh" : ["Lucknow", "Kanpur", "Mangarh"],
-    "Madhya Pradesh" : ["Maihar", "Satna"]
-}
+print("Welcome to the Secret Auction program.")
 
-# Nesting a dict in dict
+bidders_details = {}
+game_on = True
 
-travel_log_per_visit = {
-    "Uttar Pradesh" : {"Lucknow" : 5 , "Kanpur" : 3, "Mangarh" : 1},
-    "Madhya Pradesh" : {"cities_visited" : ["Maihar", "Satna"], "total_visits" : 5}
-}
-# print(travel_log_per_visit)
+def find_highest_bidder(bidding_record):
+    highest_bid = 0
+    winner = ""
+    for bidder in bidding_record:
+        bid_amount = bidding_record[bidder] # This gives us the value of the key bidder e.g. bidder = "John" and value = $45
+        if highest_bid < bid_amount:
+            highest_bid = bid_amount
+            winner = bidder # this sets key as winner e.g. winner = "John" which is the key bidder
+    print(f"The winner is {winner} with a bid of ${highest_bid}.")
 
-# for key in travel_log_per_visit:
-#     print(key)
-#     print(travel_log_per_visit[key])
+while game_on:
+    user_name = input("What is yout name? : ")
+    user_bid = int(input("What's your bid? : $"))
+    bidders_details[user_name] = user_bid
 
-# Nesting dict in list
-travel_log = [
-    {
-        "state": "Uttar Pradesh", 
-        "cities_visited" : ["Lucknow", "Kanpur", "Mangarh"], 
-        "total_visites" : 10
-    },
-    {
-        "state": "Madhya Pradesh", 
-        "cities_visited" : ["Maihar", "Satna"], 
-        "total_visits" : 5
-    },
-]
+    user_choice = input("Are there any other bidders? Type 'yes' or 'no'.\n")
+    if user_choice == 'yes':
+        clear_console()
+    else:
+        game_on = False
+        find_highest_bidder(bidding_record=bidders_details)
+        
+
