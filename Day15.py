@@ -1,3 +1,5 @@
+# Project - COFFEE MACHINE
+
 MENU = {
     "espresso": {
         "ingredients": {
