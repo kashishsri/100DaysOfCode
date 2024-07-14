@@ -1,4 +1,5 @@
 # Project - COFFEE MACHINE
+from Day15_art import logo
 
 MENU = {
     "espresso": {
@@ -76,6 +77,10 @@ def make_coffee(drink_name, order_ingredient):
     print(f"Here's your {drink_name}☕.")
 
 
+
+print(logo)
+
+
 coffee_machine_mode = True
 money = 0
 while coffee_machine_mode:
@@ -86,8 +91,10 @@ while coffee_machine_mode:
         coffee_machine_mode = False
     # TODO 3:  Print report, when the user enters “report” to the prompt
     elif user_choice == "report":
-        print(
-            f"Water : {resources['water']}ml\nMilk : {resources['milk']}ml\nCoffee : {resources['coffee']}g\nMoney : ${money}")
+        print(f"Water : {resources['water']}ml")
+        print(f"Milk : {resources['milk']}ml")    
+        print(f"Coffee : {resources['coffee']}g")    
+        print(f"Money : ${money}")
     elif user_choice == "none":
         coffee_machine_mode = False
         print("Thank\'s for coming.")
